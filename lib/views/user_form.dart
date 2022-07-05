@@ -6,8 +6,7 @@ import 'package:provider/provider.dart';
 class UserForm extends StatelessWidget{
 
   final _form = GlobalKey<FormState>();
-  final Map<String, String> _formData = {}; //this is the original (didnt work)
-  //final _formData = {};
+  final Map<String, String> _formData = {};
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +23,10 @@ class UserForm extends StatelessWidget{
               _form.currentState!.save();
               Provider.of<Users>(context, listen: false).put(
                 User(
-                id: _formData['id'],
-                name: _formData['name'],
-                email: _formData['email'],
-                avatarUrl: _formData['avatarUrl'],
+                id: _formData['id'].toString(),
+                name: _formData['name'].toString(),
+                email: _formData['email'].toString(),
+                avatarUrl: _formData['avatarUrl'].toString(),
               ),
               );
               Navigator.of(context).pop();
@@ -54,15 +53,15 @@ class UserForm extends StatelessWidget{
                   }
                   return null;
                 },
-                onSaved: (value) => _formData['name'] = value,
+                onSaved: (value) => _formData['name'] = value.toString(),
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'E-mail'),
-                onSaved: (value) => _formData['email'] = value,
+                onSaved: (value) => _formData['email'] = value.toString(),
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'URL do Avatar'),
-                onSaved: (value) => _formData['avatarUrl'] = value,
+                onSaved: (value) => _formData['avatarUrl'] = value.toString(),
               ),
             ],
           ),
