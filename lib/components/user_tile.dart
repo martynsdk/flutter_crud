@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
+import 'package:flutter_crud/provider/users.dart';
+import 'package:provider/provider.dart';
 
 import '../routes/app_routes.dart';
 
@@ -18,7 +20,7 @@ class UserTile extends StatelessWidget {
       leading: avatar,
       title: Text(user.name),
       subtitle: Text(user.email),
-      trailing: Container(
+      trailing: SizedBox(
         width: 100,
         child: Row(
           children: <Widget>[
@@ -29,11 +31,33 @@ class UserTile extends StatelessWidget {
                   arguments: user,
                 );
               },
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
               color: Colors.orangeAccent,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: const Text('Excluir Usuário'),
+                      content: const Text('Tem Certeza??'),
+                      actions: <Widget>[
+                        TextButton(
+                          child: const Text('Não'),
+                          onPressed: () => Navigator.of(context).pop(false),
+                        ),
+                        TextButton(
+                          child: const Text('Sim'),
+                          onPressed: () => Navigator.of(context).pop(true),
+                        ),
+                      ],
+                    ),
+                ).then((confirmed) {
+                  if(confirmed){
+                    Provider.of<Users>(context, listen: false).remove(user);
+                  }
+                });
+              },
               icon: Icon(Icons.delete),
               color: Colors.redAccent,
             ),
