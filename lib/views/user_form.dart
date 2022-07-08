@@ -13,8 +13,8 @@ class _UserFormState extends State<UserForm> {
 
   final Map<String, String> _formData = {};
 
-  void _loadFormData(User user){
-    if(user != null){
+  void _loadFormData(User user) {
+    if (user != null) {
       _formData['id'] = user.id;
       _formData['name'] = user.name;
       _formData['email'] = user.email;
@@ -25,14 +25,12 @@ class _UserFormState extends State<UserForm> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final User user = ModalRoute.of(context)?.settings.arguments as User; //check null
+    final user = ModalRoute.of(context).settings.arguments as User; //check null
     _loadFormData(user);
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Formulário de Usuário'),
@@ -40,16 +38,16 @@ class _UserFormState extends State<UserForm> {
           IconButton(
               icon: Icon(Icons.save),
               onPressed: () {
-                final isValid = _form.currentState!.validate();
+                final isValid = _form.currentState.validate();
 
                 if (isValid) {
-                  _form.currentState!.save();
+                  _form.currentState.save();
                   Provider.of<Users>(context, listen: false).put(
                     User(
-                      id: _formData['id'].toString(),
-                      name: _formData['name'].toString(),
-                      email: _formData['email'].toString(),
-                      avatarUrl: _formData['avatarUrl'].toString(),
+                      id: _formData['id'],
+                      name: _formData['name'],
+                      email: _formData['email'],
+                      avatarUrl: _formData['avatarUrl'],
                     ),
                   );
                   Navigator.of(context).pop();
@@ -75,17 +73,17 @@ class _UserFormState extends State<UserForm> {
                   }
                   return null;
                 },
-                onSaved: (value) => _formData['name'] = value.toString(),
+                onSaved: (value) => _formData['name'] = value,
               ),
               TextFormField(
                 initialValue: _formData['email'],
                 decoration: InputDecoration(labelText: 'E-mail'),
-                onSaved: (value) => _formData['email'] = value.toString(),
+                onSaved: (value) => _formData['email'] = value,
               ),
               TextFormField(
                 initialValue: _formData['avatarUrl'],
                 decoration: InputDecoration(labelText: 'URL do Avatar'),
-                onSaved: (value) => _formData['avatarUrl'] = value.toString(),
+                onSaved: (value) => _formData['avatarUrl'] = value,
               ),
             ],
           ),

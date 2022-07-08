@@ -20,7 +20,7 @@ class UserTile extends StatelessWidget {
       leading: avatar,
       title: Text(user.name),
       subtitle: Text(user.email),
-      trailing: SizedBox(
+      trailing: Container(
         width: 100,
         child: Row(
           children: <Widget>[
@@ -35,12 +35,14 @@ class UserTile extends StatelessWidget {
               color: Colors.orangeAccent,
             ),
             IconButton(
+              icon: Icon(Icons.delete),
+              color: Colors.redAccent,
               onPressed: () {
                 showDialog(
                     context: context,
                     builder: (ctx) => AlertDialog(
                       title: const Text('Excluir Usuário'),
-                      content: const Text('Tem Certeza??'),
+                      content: const Text('Tem Certeza???'),
                       actions: <Widget>[
                         TextButton(
                           child: const Text('Não'),
@@ -58,8 +60,6 @@ class UserTile extends StatelessWidget {
                   }
                 });
               },
-              icon: Icon(Icons.delete),
-              color: Colors.redAccent,
             ),
           ],
         ),

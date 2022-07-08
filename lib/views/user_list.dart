@@ -16,10 +16,11 @@ class UserList extends StatelessWidget {
         title: Text('Lista de Usuários'),
         actions: <Widget>[
           IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
+            icon: Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
               },
-              icon: Icon(Icons.add))
+          ),
         ],
       ),
       body: ListView.builder(
