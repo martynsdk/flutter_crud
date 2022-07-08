@@ -1,5 +1,5 @@
 name: flutter_crud
-description: Curso SUPER objetivo te ensinando como construir um Cadastro completo em Flutter! CRUD... Create, Read, Update e Delete.
+description: Course from Udemy and cod3r.com. Objective basic CRUD. Course is in Portuguese but I created the localization files so it's pt_BR and en_US.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

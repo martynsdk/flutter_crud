@@ -1,16 +1,11 @@
 # flutter_crud
 
-Curso SUPER objetivo te ensinando como construir um Cadastro completo em Flutter! CRUD... Create, Read, Update e Delete.
+Course from Udemy and cod3r.com. Objective basic CRUD. Course is in Portuguese but I created the
+localization files so it's pt_BR and en_US.
 
-## Getting Started
+Curso SUPER objetivo te ensinando como construir um Cadastro completo em Flutter! CRUD... Create,
+Read, Update e Delete.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Links:
+https://www.cod3r.com.br/courses/flutter-desenvolva-um-cadastro-completo
+https://www.udemy.com/course/flutter-desenvolva-um-cadastro-completo-2020/learn/lecture/19975872?start=30#content
