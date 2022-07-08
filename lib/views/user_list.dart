@@ -3,6 +3,7 @@ import 'package:flutter_crud/components/user_tile.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/provider/users.dart';
 import 'package:flutter_crud/routes/app_routes.dart';
+import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
 
 class UserList extends StatelessWidget {
@@ -14,11 +15,12 @@ class UserList extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        title: Text("userlist".i18n()),
         centerTitle: true,
-        title: const Text('Lista de Usuários'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
+            tooltip: "addUser".i18n(),
             onPressed: () {
               Navigator.of(context).pushNamed(
                 AppRoutes.userFormRoute,

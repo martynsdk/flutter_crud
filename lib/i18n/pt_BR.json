@@ -1,0 +1,16 @@
+{
+  "userlist": "Lista de Usuários",
+  "userform": "User Form",
+  "name": "Nome",
+  "email": "Email",
+  "avatarUrl": "URL do Avatar",
+  "invalidName": "Nome Inválido",
+  "smallName": "Nome muito pequeno. No mínimo 3 letras.",
+  "deleteUser": "Excluir Usuário",
+  "areYouSure": "Tem Certeza???",
+  "no": "Não",
+  "yes": "Sim",
+  "editUser": "Edit User",
+  "saveUser": "Salvar Usuário",
+  "addUser": "Add User"
+}

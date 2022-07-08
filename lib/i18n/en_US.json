@@ -1,0 +1,16 @@
+{
+  "userlist": "User List",
+  "userform": "User Form",
+  "name": "Name",
+  "email": "Email",
+  "avatarUrl": "Avatar URL",
+  "invalidName": "Invalid Name",
+  "smallName": "Name too small. Please enter at least 3 characters.",
+  "deleteUser": "Delete User",
+  "areYouSure": "Are you Sure???",
+  "no": "No",
+  "yes": "Yes",
+  "editUser": "Edit User",
+  "saveUser": "Save",
+  "addUser": "Add User"
+}

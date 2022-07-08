@@ -19,7 +19,6 @@ class Users with ChangeNotifier {
   }
 
   void put(User user) {
-    //ignore: unnecessary_null_comparison;
     if (user == null) {
       return;
     }

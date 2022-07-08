@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/provider/users.dart';
+import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
 
 class UserForm extends StatefulWidget {
@@ -25,14 +26,16 @@ class _UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    final user = ModalRoute.of(context)?.settings.arguments as User; //check null
+    final user =
+        ModalRoute.of(context)?.settings.arguments as User; //check null
     _loadFormData(user);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulário de Usuário'),
+        title: Text("userform".i18n()),
         actions: <Widget>[
           IconButton(
               icon: const Icon(Icons.save),
+              tooltip: "saveUser".i18n(),
               onPressed: () {
                 final isValid = _form.currentState!.validate();
 
@@ -59,13 +62,13 @@ class _UserFormState extends State<UserForm> {
             children: <Widget>[
               TextFormField(
                 initialValue: _formData['name'],
-                decoration: const InputDecoration(labelText: 'Nome'),
+                decoration: InputDecoration(labelText: "name".i18n()),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return 'Nome inválido';
+                    return "invalidName".i18n();
                   }
                   if (value.trim().length <= 3) {
-                    return 'Nome muito pequeno. No mínimo 3 letras.';
+                    return "smallName".i18n();
                   }
                   return null;
                 },
@@ -73,12 +76,12 @@ class _UserFormState extends State<UserForm> {
               ),
               TextFormField(
                 initialValue: _formData['email'],
-                decoration: const InputDecoration(labelText: 'E-mail'),
+                decoration: InputDecoration(labelText: "email".i18n()),
                 onSaved: (value) => _formData['email'] = value!,
               ),
               TextFormField(
                 initialValue: _formData['avatarUrl'],
-                decoration: const InputDecoration(labelText: 'URL do Avatar'),
+                decoration: InputDecoration(labelText: "avatarUrl".i18n()),
                 onSaved: (value) => _formData['avatarUrl'] = value!,
               ),
             ],

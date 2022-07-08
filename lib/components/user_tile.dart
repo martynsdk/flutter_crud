@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/provider/users.dart';
+import 'package:localization/localization.dart';
 import 'package:provider/provider.dart';
-
 import '../routes/app_routes.dart';
 
 class UserTile extends StatelessWidget {
@@ -10,7 +10,6 @@ class UserTile extends StatelessWidget {
 
   const UserTile(this.user, {Key? key}) : super(key: key);
 
-  //HERE
   @override
   Widget build(BuildContext context) {
     final avatar = user.avatarUrl == null || user.avatarUrl.isEmpty
@@ -33,24 +32,27 @@ class UserTile extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.edit),
+              tooltip: "editUser".i18n(),
               color: Colors.orangeAccent,
             ),
             IconButton(
               icon: const Icon(Icons.delete),
+              tooltip: "deleteUser".i18n(),
               color: Colors.redAccent,
               onPressed: () {
                 showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (ctx) => AlertDialog(
-                    title: const Text('Excluir Usuário'),
-                    content: const Text('Tem Certeza???'),
+                    title: Text("deleteUser".i18n()),
+                    content: Text("areYouSure".i18n()),
                     actions: <Widget>[
                       TextButton(
-                        child: const Text('Não'),
+                        child: Text("no".i18n()),
                         onPressed: () => Navigator.of(context).pop(false),
                       ),
                       TextButton(
-                        child: const Text('Sim'),
+                        child: Text("yes".i18n()),
                         onPressed: () => Navigator.of(context).pop(true),
                       ),
                     ],
