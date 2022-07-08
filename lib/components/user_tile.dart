@@ -25,7 +25,7 @@ class UserTile extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(
-                    AppRoutes.USER_FORM,
+                  AppRoutes.USER_FORM,
                   arguments: user,
                 );
               },

@@ -3,8 +3,7 @@ import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/provider/users.dart';
 import 'package:provider/provider.dart';
 
-class UserForm extends StatelessWidget{
-
+class UserForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
 
@@ -16,24 +15,22 @@ class UserForm extends StatelessWidget{
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.save),
-          onPressed: () {
-            final isValid = _form.currentState!.validate();
+              onPressed: () {
+                final isValid = _form.currentState!.validate();
 
-            if (isValid){
-              _form.currentState!.save();
-              Provider.of<Users>(context, listen: false).put(
-                User(
-                id: _formData['id'].toString(),
-                name: _formData['name'].toString(),
-                email: _formData['email'].toString(),
-                avatarUrl: _formData['avatarUrl'].toString(),
-              ),
-              );
-              Navigator.of(context).pop();
-            }
-
-          }
-          ),
+                if (isValid) {
+                  _form.currentState!.save();
+                  Provider.of<Users>(context, listen: false).put(
+                    User(
+                      id: _formData['id'].toString(),
+                      name: _formData['name'].toString(),
+                      email: _formData['email'].toString(),
+                      avatarUrl: _formData['avatarUrl'].toString(),
+                    ),
+                  );
+                  Navigator.of(context).pop();
+                }
+              }),
         ],
       ),
       body: Padding(
@@ -44,11 +41,11 @@ class UserForm extends StatelessWidget{
             children: [
               TextFormField(
                 decoration: InputDecoration(labelText: 'Nome'),
-                validator: (value){
-                  if (value == null || value.trim().isEmpty){
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
                     return 'Nome inválido';
                   }
-                  if (value.trim().length <= 3){
+                  if (value.trim().length <= 3) {
                     return 'Nome muito pequeno. No mínimo 3 letras.';
                   }
                   return null;
@@ -68,7 +65,5 @@ class UserForm extends StatelessWidget{
         ),
       ),
     );
-
   }
-  
 }
